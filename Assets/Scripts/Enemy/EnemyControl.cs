@@ -5,18 +5,18 @@ using UnityEngine;
 public class EnemyControl : MonoBehaviour
 {
     private int healthPoints;
-    //private WinOrLoose condition;
+    private WinOrLoose condition;
 
     private void Start()
     {
         healthPoints = 100;
-        //condition = FindObjectOfType<WinOrLoose>();
+        condition = FindObjectOfType<WinOrLoose>();
     }
 
     // Función de daño.
     public void receiveDamage()
     {
-        healthPoints = healthPoints - 25;
+        healthPoints = healthPoints - 50;
 
         if (healthPoints <= 0)
         {
@@ -28,7 +28,7 @@ public class EnemyControl : MonoBehaviour
     {
         Destroy(gameObject);
 
-        //condition.EnemyEliminated();
+        condition.EnemyEliminated();
     }
 
     // Daño por colisión del proyectil.

@@ -31,7 +31,8 @@ public class EnemySpawn : MonoBehaviour
         float randomX = Random.Range(-enemyPositionX, enemyPositionX);
         Vector3 spawnPosition = new Vector3(randomX, positionY, enemyPositionZ);
 
-        Instantiate(enemy, spawnPosition, enemy.transform.rotation);
+        GameObject newEnemy = Instantiate(enemy, spawnPosition, enemy.transform.rotation);
+        Destroy(newEnemy, 3.0f);
     }
 
     void UpdateTimerText()

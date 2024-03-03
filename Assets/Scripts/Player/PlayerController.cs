@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Camera firstPersonCamera;
     public GameObject Projectile;
     public Image sight;
-    //public Animator animator;
+    public Animator animator;
 
     private void Start()
     {
@@ -21,9 +21,9 @@ public class PlayerController : MonoBehaviour
         // Movimiento del player.
         float forwardMovement = Input.GetAxis("Vertical") * velocity;
         float horizontalMovement = Input.GetAxis("Horizontal") * velocity;
-        //// Animaciones.
-        //animator.SetFloat("SpeedX", horizontalMovement);
-        //animator.SetFloat("SpeedZ", forwardMovement);
+        // Animaciones.
+        animator.SetFloat("VelX", horizontalMovement);
+        animator.SetFloat("VelZ", forwardMovement);
 
 
         forwardMovement *= Time.deltaTime;

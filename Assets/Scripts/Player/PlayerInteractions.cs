@@ -15,19 +15,24 @@ public class PlayerInteractions : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.CompareTag("DeathFloor"))
-        {
-            GameManager.Instance.LoseHealth(50);
-
-            gameObject.transform.position = spawnPoint.position;
-        }
+        //if (other.gameObject.CompareTag("DeathFloor"))
+        //{
+        //    gameObject.transform.position = spawnPoint.position;
+        //    GameManager.Instance.LoseHealth(50);
+        //}
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("EnemyBullet"))
+        //if (collision.gameObject.CompareTag("EnemyBullet"))
+        //{
+        //    GameManager.Instance.LoseHealth(15);
+        //}
+
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            GameManager.Instance.LoseHealth(15);
+            // Resta 25 puntos de vida al jugador.
+            GameManager.Instance.LoseHealth(25);
         }
     }
 }
