@@ -32,7 +32,7 @@ public class WinOrLoose : MonoBehaviour
 
             if (timeRemaining <= 0 && enemiesEliminated < requiredEnemies)
             {
-                GameManager.Instance.EndGame(false); // Llama al método EndGame del GameManager con false (derrota).
+                GameManager.Instance.EndGame(false);
                 gameEnded = true;
             }
         }
@@ -45,7 +45,7 @@ public class WinOrLoose : MonoBehaviour
 
         if (enemiesEliminated >= requiredEnemies && timeRemaining > 0)
         {
-            GameManager.Instance.EndGame(true); // Llama al método EndGame del GameManager con true (victoria).
+            GameManager.Instance.EndGame(true);
             gameEnded = true;
         }
     }

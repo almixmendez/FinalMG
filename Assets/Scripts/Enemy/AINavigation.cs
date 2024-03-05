@@ -7,8 +7,6 @@ public class AINavigation : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
 
-    //public Transform[] destinations;
-
     public bool followPlayer;
     private GameObject player;
 

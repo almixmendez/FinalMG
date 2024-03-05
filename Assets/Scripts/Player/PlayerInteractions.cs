@@ -14,24 +14,13 @@ public class PlayerInteractions : MonoBehaviour
             Debug.Log("Toqué la caja!");
             Destroy(other.gameObject);
         }
-
-        //if (other.gameObject.CompareTag("DeathFloor"))
-        //{
-        //    gameObject.transform.position = spawnPoint.position;
-        //    GameManager.Instance.LoseHealth(50);
-        //}
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if (collision.gameObject.CompareTag("EnemyBullet"))
-        //{
-        //    GameManager.Instance.LoseHealth(15);
-        //}
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Resta 25 puntos de vida al jugador.
             GameManager.Instance.LoseHealth(25);
         }
     }

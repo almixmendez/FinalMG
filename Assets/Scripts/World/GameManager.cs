@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
 
     private bool gamePaused = false;
 
+    private void Start()
+    {
+        gamePaused = false;
+    }
+
     private void Awake()
     {
         Instance = this;
@@ -43,12 +48,17 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        victoryPanel.SetActive(false);
+        defeatPanel.SetActive(false);
         gamePaused = false;
     }
 
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("UI");
+        victoryPanel.SetActive(false);
+        defeatPanel.SetActive(false);
+        gamePaused = false;
     }
 
     public void QuitGame()
@@ -79,7 +89,7 @@ public class GameManager : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("memuri");
-            EndGame(false); // Llama a EndGame si la salud es menor o igual a cero.
+            EndGame(false);
         }
     }
 
@@ -88,7 +98,7 @@ public class GameManager : MonoBehaviour
         healthText.text = health.ToString();
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         gamePaused = true;
@@ -98,5 +108,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         gamePaused = false;
+    }
+
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1;
+        gamePaused = false;
+        PlayerPrefs.SetInt("IsGamePaused", gamePaused ? 1 : 0);
     }
 }
